@@ -85,9 +85,9 @@ public class MouseListener {
         return getMouseListener().isDragging;
     }
 
-    public static boolean isMouseKeyPressed(int bttn) {
-        if (bttn < getMouseListener().mouseKeyPressed.length) {
-            return getMouseListener().mouseKeyPressed[bttn];
+    public static boolean isMouseKeyPressed(int button) {
+        if (button < getMouseListener().mouseKeyPressed.length) {
+            return getMouseListener().mouseKeyPressed[button];
         }
         return false;
     }

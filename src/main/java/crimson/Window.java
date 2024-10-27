@@ -19,7 +19,6 @@ import static org.lwjgl.system.MemoryUtil.*;
 public class Window {
 
     public static Window window = null;
-
     private int width, height;
     private String title;
     private long glfwWindow;
