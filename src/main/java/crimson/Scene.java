@@ -6,6 +6,9 @@ so we make it abstract and from it will create the specific scene types
 */
 
 public abstract class Scene {
+
+    protected Camera camera;
+
     public Scene() {}
     public void init() {}
     public abstract void update(float dt);
