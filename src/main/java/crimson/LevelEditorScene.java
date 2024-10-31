@@ -3,6 +3,7 @@ package crimson;
 import org.joml.Vector2f;
 import org.lwjgl.BufferUtils;
 import render.Shader;
+import utils.Time;
 
 import java.awt.event.KeyEvent;
 import java.nio.FloatBuffer;
@@ -37,6 +38,7 @@ public class LevelEditorScene extends Scene {
 
     @Override
     public void init() {
+
         this.camera = new Camera(new Vector2f());
         defaultShader = new Shader("assets/shaders/default.glsl");
         defaultShader.compile();
@@ -86,10 +88,13 @@ public class LevelEditorScene extends Scene {
     @Override
     public void update(float dt) {
         camera.position.x -= dt * 50.0f;
+        camera.position.y -= dt * 25.0f;
 
         defaultShader.use();
         defaultShader.uploadMat4f("uProjection", camera.getProjectionMatrix());
         defaultShader.uploadMat4f("uView", camera.getViewMatrix());
+        defaultShader.uploadFloat("uTime", Time.getTime());
+
 
         //Bind the VAO we're using
         glBindVertexArray(vaoID);

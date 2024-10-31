@@ -132,7 +132,7 @@ public class Window {
 
     public void loop() {
 
-        float frameBeginTime = Time.getTimePassed();
+        float frameBeginTime = Time.getTime();
         float frameEndTime;
         float dt = -1.0f;
 
@@ -149,7 +149,7 @@ public class Window {
 
             glfwSwapBuffers(glfwWindow);
 
-            frameEndTime = Time.getTimePassed();
+            frameEndTime = Time.getTime();
             dt = frameEndTime - frameBeginTime;
             frameBeginTime = frameEndTime;
         }
