@@ -54,10 +54,6 @@ public class Shader {
                 throw new IOException("Unexpected token: " + firstPattern);
             }
 
-            System.out.println(this.vertexSrc);
-            System.out.println(this.fragmentSrc);
-
-
         }catch(IOException e) {
             e.printStackTrace();
             assert false : "Could not open file for shaders: " + filepath;
@@ -177,5 +173,11 @@ public class Shader {
         int varLocation = glGetUniformLocation(this.shaderProgramID, varName);
         use();
         glUniform1i(varLocation, val);
+    }
+
+    public void uploadTexture(String varName, int slot) {
+        int varLocation = glGetUniformLocation(this.shaderProgramID, varName);
+        use();
+        glUniform1i(varLocation, slot);
     }
 }
