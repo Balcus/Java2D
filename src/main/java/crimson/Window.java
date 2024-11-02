@@ -32,10 +32,10 @@ public class Window {
         this.width = 1920;
         this.height = 1080;
         this.title = "Java2D";
-        r = 1;
-        g = 1;
-        b = 1;
-        a = 1;
+        this.r = 1;
+        this.g = 1;
+        this.b = 1;
+        this.a = 1;
     }
 
     /*
@@ -54,10 +54,12 @@ public class Window {
             case 0:
                 currentScene = new LevelEditorScene();
                 currentScene.init();
+                currentScene.start();
                 break;
             case 1:
                 currentScene = new LevelScene();
                 currentScene.init();
+                currentScene.start();
                 break;
             default:
                 assert false : "Unkown Scene: " + newScene + '\n';
