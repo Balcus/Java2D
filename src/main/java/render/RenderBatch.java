@@ -3,6 +3,7 @@ package render;
 import components.SpriteRenderer;
 import crimson.Window;
 import org.joml.Vector4f;
+import utils.AssetPool;
 import utils.Time;
 
 import static org.lwjgl.opengl.ARBVertexArrayObject.glBindVertexArray;
@@ -41,9 +42,7 @@ public class RenderBatch {
         this.numSprites = 0;
         this.hasRoom = true;
 
-        this.shader = new Shader("assets/shaders/default.glsl");
-        this.shader.compile();
-
+        this.shader = AssetPool.getShader("assets/shaders/default.glsl");
         this.vertices = new float[this.maxBatchSize * 4 * VERTEX_SIZE];
 
     }
