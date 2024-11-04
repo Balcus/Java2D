@@ -1,22 +1,28 @@
 package components;
 
 import crimson.Component;
+import org.joml.Vector2f;
+import org.joml.Vector4f;
 
 public class SpriteRenderer extends Component {
 
-    private boolean firstIt = false;
+    Vector4f color;
+
+    public SpriteRenderer(Vector4f color) {
+        this.color = color;
+    }
 
     @Override
     public void start() {
-        System.out.println("SpriteRenderer started");
+
     }
 
     @Override
     public void update(float dt) {
-        if (!firstIt) {
-            System.out.println("SpriteRenderer is updating");
-            this.firstIt = true;
-        }
 
+    }
+
+    public Vector4f getColor() {
+        return color;
     }
 }

@@ -1,18 +1,14 @@
 package crimson;
 
-import org.lwjgl.*;
 import org.lwjgl.glfw.*;
 import org.lwjgl.opengl.*;
 import org.lwjgl.system.*;
 import utils.Time;
 
-import java.nio.*;
 
 import static org.lwjgl.glfw.Callbacks.*;
 import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.opengl.GL11.*;
-import static org.lwjgl.system.MemoryStack.*;
-import static org.lwjgl.system.MemoryUtil.*;
 
 
 //Singleton Class (Only have one instance of the object at a time)
@@ -155,6 +151,10 @@ public class Window {
             dt = frameEndTime - frameBeginTime;
             frameBeginTime = frameEndTime;
         }
+    }
+
+    public static Scene getCurrentScene() {
+        return getWindow().currentScene;
     }
 
 }

@@ -13,14 +13,22 @@ import java.util.List;
 public class GameObject {
     private String name;
     private List<Component> components;
+    public Transform transform;
 
     public GameObject(String name) {
         this.name = name;
         this.components = new ArrayList<>();
+        this.transform = new Transform();
+    }
+
+    public GameObject(String name, Transform transform) {
+        this.name = name;
+        this.components = new ArrayList<>();
+        this.transform = transform;
     }
 
     /**
-     * <p>Retrieves the first component of the specified class type from this GameObject's list of components.</p>
+     * <p>Retrieves the <b>first</b> component of the specified class type from this GameObject's list of components.</p>
      * @param componentClass the {@code Class} object of the type of component being requested
      * @return first component of the specified type or {@code null} if no matching component found
      * @param <T> the type of the component to retrieve (MUST extend {@link Component} class)
@@ -42,7 +50,7 @@ public class GameObject {
     }
 
     /**
-     * <p>Removes the first component of the specified class type from this GameObject's list of components.</p>
+     * <p>Removes the <b>first</b> component of the specified class type from this GameObject's list of components.</p>
      * @param componentClass the {@code Class} object of the type of component being requested
      * @param <T> the type of the component to retrieve (MUST extend {@link Component} class)
      */
@@ -58,7 +66,7 @@ public class GameObject {
 
     /**
      * <p>Adds component to the GameObject's list of components.</p>
-     * @param c  {@code Component} object to be added to the GameObject's list of components
+     * @param c {@code Component} object to be added to the GameObject's list of components
      */
     public <T extends Component> void addComponent(Component c) {
         this.components.add(c);
